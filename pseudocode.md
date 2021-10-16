@@ -18,15 +18,40 @@ Remove reads in SAM file which are PCR duplicates. In the SAM file, these are de
 
 	def dice_head (sam_head: str -> list
 		'''converts SAM header to list of components needed for analysis'''
-		return [QNAME, FLAG, RNAME, POS, CIGAR, unmapped, revc]
+		<insert code here>
+		return [UMI, FLAG, RNAME, POS, CIGAR, unmapped, revc]
+		
+		test example: 
+			
+			sam_head = "NS500451:154:HWKTMBGXX:1:11101:24260:1121:CTGTTCAC	20	2	76814284	36	71M	*	0	0	TCCACCACAATCTTACCATCCTTCCTCCAGACCACATCGCGTTCTTTGTTCAACTCACAGCTCAAGTACAA	6AEEEEEEAEEAEEEEAAEEEEEEEEEAEEAEEAAEE<EEEEEEEEEAEEEEEEEAAEEAAAEAEEAEAE/	MD:Z:71	NH:i:1	HI:i:1	NM:i:0	SM:i:36	XQ:i:40	X2:i:0	XO:Z:UU"
+			
+			output: ["CTGTTCAC", 0, 2, 76814284, "71M", 1, 1]
 
 	def to_tru_pos (soft_pos: int, cigar: str, top_strand: bool) -> int:
 		'''Converts position with soft clipping (from CIGAR string) to true position'''
+		<insert code here>
 		return real_pos
+
+		test example:
+
+			soft_pos = 100
+			cigar = "11S60M"
+			top_strand = 1
+
+			output: 89
 
 	def to_cush_pos (real_pos: int, cigar: str, top_strand: bool) -> int:
 		'''converts true position to position with soft clipping (from CIGAR string)'''
+		<insert code here>
 		return soft_pos
+
+		test example: 
+
+			real_pos = 89
+			cigar = "11S60M"
+			top_strand = 1
+
+			output: 100
 
 ## Algorithm
 
@@ -48,4 +73,8 @@ For each position in sorted SAM file: (run line counter and nucleotide position 
 
 6. if real_pos != previous_pos, write top_strand_line and bottom_strand_line to output file
 
+## Test files
 
+input: `/data/test_soft.sam`
+
+output `/data/test_soft_output.sam`
