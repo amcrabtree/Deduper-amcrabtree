@@ -36,14 +36,12 @@ Located in `./data` (available on Talapas only)
 
 ## Scripts
 
-Located in `./scripts`
-
 * `amcrabtree-deduper.py` - main python script used for removing PCR duplicates
 * `Bioinfo.py` - module for high-level functions specific to this workflow
 
 #### High Level Functions 
 
-Located in `./scripts/Bioinfo.py`
+Located in `Bioinfo.py`
 
 These are the high level functions used in this workflow, imported from `Bioinfo.py`.
 
